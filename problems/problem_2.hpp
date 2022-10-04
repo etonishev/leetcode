@@ -33,10 +33,11 @@ class Solution {
   ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
     ListNode* head = nullptr;
     ListNode* sum = nullptr;
-    int remainder = 0;
+    bool carry = false;
 
     while (l1 != nullptr || l2 != nullptr) {
-      int value = remainder;
+      int value = carry ? 1 : 0;
+      carry = false;
 
       if (l1 != nullptr) {
         value = value + l1->val;
@@ -48,8 +49,12 @@ class Solution {
         l2 = l2->next;
       }
 
-      remainder = value / 10;
-      ListNode* digit = new ListNode(value % 10);
+      if (value > 10) {
+        value = value - 10;
+        carry = true;
+      }
+
+      ListNode* digit = new ListNode(value);
 
       if (sum == nullptr) {
         sum = digit;
@@ -60,8 +65,8 @@ class Solution {
       }
     }
 
-    if (remainder) {
-      ListNode* digit = new ListNode(remainder);
+    if (carry) {
+      ListNode* digit = new ListNode(1);
       sum->next = digit;
     }
 
