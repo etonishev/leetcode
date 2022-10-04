@@ -49,7 +49,7 @@ class Solution {
         l2 = l2->next;
       }
 
-      if (value > 10) {
+      if (value >= 10) {
         value = value - 10;
         carry = true;
       }
