@@ -34,3 +34,10 @@ class Solution {
     return longestSize;
   }
 };
+
+/*
+ * Runtime: 21 ms, faster than 70.31% of C++ online submissions for Longest
+ * Substring Without Repeating Characters.
+ * Memory Usage: 6.7 MB, less than 99.29% of C++ online submissions for Longest
+ * Substring Without Repeating Characters.
+ */
